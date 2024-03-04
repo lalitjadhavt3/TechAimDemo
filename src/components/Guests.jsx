@@ -7,7 +7,9 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import axios from 'axios';
+import axios from '../utils/secureAxios';
+import api from '../utils/secureAxios';
+import {isSslPinningAvailable} from 'react-native-ssl-public-key-pinning';
 
 const Guests = () => {
   const [data, setData] = useState(null);
@@ -17,12 +19,14 @@ const Guests = () => {
   }, []);
 
   const fetchData = async () => {
-    try {
-      const response = await axios.get('https://reqres.in/api/users/');
-      setData(response.data.data);
-    } catch (error) {
-      console.error('Error fetching data:', error.message);
-    }
+    await api
+      .get('/sampleGet.php')
+      .then(response => {
+        console.log('== ~ fetchData ~ response:', response);
+      })
+      .catch(error => {
+        console.log('Error', 'Failed to fetch data due to', error);
+      });
   };
 
   const renderUserItem = ({item}) => (
@@ -41,12 +45,6 @@ const Guests = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Guests</Text>
-      <FlatList
-        data={data}
-        renderItem={renderUserItem}
-        keyExtractor={item => item.id}
-        contentContainerStyle={styles.listContainer}
-      />
     </View>
   );
 };
