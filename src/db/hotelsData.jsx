@@ -1,0 +1,58 @@
+const hotels = [
+  {
+    id: 1,
+    GeoLocation: {latitude: '20.0050', longitude: ' 73.7650'},
+    name: 'Panchavati Inn',
+    images: [
+      require('./../assets/hotel-1-1.jpg'),
+      require('./../assets/hotel-1-2.jpg'),
+    ],
+    ratingInStars: 4.5,
+    rating: 7.2,
+    price: 1880,
+    discountedPrice: 1500,
+    discountPercentage: 25,
+    description: 'A luxurious resort with beautiful amenities.',
+    totalReviews: 123,
+    city: 'Nashik',
+    isPromoted: true,
+  },
+  {
+    id: 2,
+    GeoLocation: {latitude: '20.0000', longitude: '73.8000'},
+    name: 'Maharaja Delight',
+    images: [
+      require('./../assets/hotel-2-1.jpg'),
+      require('./../assets/hotel-2-2.jpg'),
+    ],
+    ratingInStars: 3,
+    rating: 8.9,
+    price: 1880,
+    discountedPrice: 1356,
+    discountPercentage: 28,
+    description: 'A luxurious resort with beautiful amenities.',
+    totalReviews: 532,
+    city: 'Nashik',
+    isPromoted: false,
+  },
+  {
+    id: 3,
+    GeoLocation: {latitude: '19.9930', longitude: '73.7760'},
+    name: 'Express Inn',
+    images: [
+      require('./../assets/hotel-3-1.jpg'),
+      require('./../assets/hotel-3-2.jpg'),
+    ],
+    ratingInStars: 5,
+    rating: 5.9,
+    price: 1280,
+    discountedPrice: 1100,
+    discountPercentage: 33,
+    description: 'A luxurious resort with beautiful amenities.',
+    totalReviews: 255,
+    city: 'Nashik',
+    isPromoted: true,
+  },
+  // Add more hotels as needed
+];
+export default hotels;
